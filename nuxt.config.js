@@ -35,7 +35,26 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
   ],
+
+  auth: {
+    strategies: {
+      spotify: {
+        scheme: 'oauth2',
+        endpoints: {
+          authorization: process.env.SPOTIFY_LOGIN_URL,
+          token: process.env.SPOTIFY_TOKEN_URL,
+          userInfo: process.env.SPOTIFY_USER_URL,
+        },
+        grantType: 'authorization_code',
+        redirectUri: process.env.SPOTIFY_CALLBACK_URL,
+        clientId: process.env.SPOTIFY_CLIENT_ID,
+        responseType: 'code',
+        codeChallengeMethod: 'S256',
+      },
+    },
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
@@ -45,4 +64,8 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  router: {
+    middleware: ['auth'],
+  },
 }
