@@ -1,6 +1,6 @@
 # nuxt-spotify-login-demo
 
-A demo showing how to authenticate against the [Spotify API](https://developer.spotify.com/) in [Nuxt](https://nuxtjs.org/) application.
+A demo showing how to authenticate against the [Spotify API](https://developer.spotify.com/) in a [Nuxt.js](https://nuxtjs.org/) application.
 
 ## Installation
 
